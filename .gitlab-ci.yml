@@ -1,0 +1,22 @@
+image: docker:19.03
+variables:
+  DOCKER_TLS_CERTDIR: "/certs"
+services:
+  - docker:19.03-dind
+
+stages:
+  - deploy
+
+functions-deploy:
+  image: rambabusaravanan/firebase
+  stage: deploy
+  script:
+    - cd functions
+    - npm install
+    - cd ..
+    - firebase deploy --token "$FIREBASE_TOKEN" --only functions
+  only:
+    - master
+  except:
+    changes:
+      - "*.md"
