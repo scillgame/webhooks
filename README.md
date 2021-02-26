@@ -23,7 +23,7 @@ the event payload.
 be set.
 
 For example, if you want to send an event if a challenge is finished, set this webhook in the Admin Panel:
-`https://europe-west1-scill-webhooks.cloudfunctions.net/sendEventfFinished?event_name=trigger-event&amount=1&event_type=challenge_completed`
+https://europe-west1-scill-webhooks.cloudfunctions.net/sendEventfFinished?event_name=trigger-event&amount=1&event_type=challenge_completed
 
 This will trigger a [trigger-event](https://developers.scillgame.com/events.html#trigger-event) with the meta data
 `amount=1` and `event_type=challenge_completed`. This way, you could create another challenge that listens on the
@@ -38,3 +38,6 @@ that says: "Collect 1000 XP". This is especially useful if you want to drive usa
 daily and weekly challenges together with a ranking based battle pass.
 
 This way, users will only climb up in the battle pass level hierarchy if they also achieve personal challenges.
+
+You just need to set this webhook in the Admin Panel to implement that type of functionality:
+https://europe-west1-scill-webhooks.cloudfunctions.net/collectXPIfFinished
